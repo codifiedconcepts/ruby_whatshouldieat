@@ -1,19 +1,13 @@
-module WhatShouldIEat
+def WhatShouldIEat.fresh
 
- def WhatShouldIEat.fresh
+    result = Net::HTTP.get('www.edamam.com', '/search?type=Feeds')
 
-   result = Net::HTTP.get('www.edamam.com', '/search?type=Feeds')
+    recipes = JSON.parse(result)
 
-   recipes = JSON.parse(result)
+    name = recipes.first['items'].first['label']
 
-   name = recipes.first['items'].first['label']
+    url = recipes.first['items'].first['url']
 
-   url = recipes.first['items'].first['url']
-
-   puts name
-
-   puts url
-
- end
+    Printing.print(name, url)
 
 end

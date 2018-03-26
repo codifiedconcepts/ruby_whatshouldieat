@@ -11,5 +11,3 @@ url = recipes.first['items'].first['url']
 Printing.print name, url
 
 end
-
-end
